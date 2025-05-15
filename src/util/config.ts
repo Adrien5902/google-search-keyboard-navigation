@@ -20,6 +20,12 @@ export interface Config {
      * Next = Tab; Previous = Shift + TAB
      */
     navigateWithTabs: boolean;
+
+    /**
+     * Press this key to focus the search 
+     * Default = F
+     */
+    focusSearchBarKey: string
 }
 
 export class ConfigHandler {
@@ -30,6 +36,7 @@ export class ConfigHandler {
             navigateWithArrows: true,
             navigateWithJK: false,
             navigateWithTabs: false,
+            focusSearchBarKey: "f"
         };
     }
 

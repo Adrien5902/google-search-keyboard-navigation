@@ -34,6 +34,14 @@ import {navigation} from '../util/navigation';
             e.stopPropagation();
             navigation.focusResult(shouldNavigateNext ? 1 : -1);
         }
+
+        const searchBar = (document.querySelector('textarea[name="q"]') as HTMLTextAreaElement | null)
+        if (e.key === config.focusSearchBarKey && document.activeElement !== searchBar) {
+            e.preventDefault();
+            e.stopPropagation();
+            searchBar?.focus();
+            searchBar?.select();
+        }
     });
 
     if (config.autoSelectFirst) {

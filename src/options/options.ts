@@ -38,6 +38,7 @@ function loadForm(config: Config) {
     loadInputs().forEach((input, key) => {
         input.checked = config[key];
     });
+    (document.getElementById("focusSearchBarKey") as HTMLInputElement).value = config.focusSearchBarKey;
 }
 
 async function persistForm() {
@@ -46,6 +47,7 @@ async function persistForm() {
     loadInputs().forEach((input, key) => {
         config[key] = input.checked;
     });
+    config.focusSearchBarKey = (document.getElementById("focusSearchBarKey") as HTMLInputElement).value;
 
     await configHandler.saveConfig(config as Config);
     displaySaveSuccess();
